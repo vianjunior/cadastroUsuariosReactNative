@@ -47,8 +47,10 @@ app.get('/buscaUsuariosApp', (request, response)=>{
                 console.log('Erro ao executar SELECT em /buscaUsuariosAPP', err)
                 return //break
             } else {
+                console.log('Done!')
                 response.send(result)
             }
+            db.detach()
         })
     })
 })
