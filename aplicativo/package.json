@@ -7,12 +7,14 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "accordion-collapse-react-native": "^0.1.10",
     "axios": "^0.18.0",
     "create-react-native-app": "^2.0.2",
     "expo": "^32.0.0",
     "native-base": "^2.12.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-collapsible-list": "^1.0.0",
     "react-native-elements": "^1.1.0",
     "react-native-router-flux": "^4.0.6",
     "react-native-vector-icons": "^6.4.2",

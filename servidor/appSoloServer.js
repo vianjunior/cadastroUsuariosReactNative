@@ -11,7 +11,7 @@ app.use(bodyParser.json({ limit: "50mb" }))
 //configuração de conexão com DB Firebird
 var options = {};
 options.host = '10.1.1.154';
-options.database = 'C:\\Users\\Public\\Bkp\\Metasis Testes Mobile\\Agro Gatti\\DB\\INDUSTRIAL.FDB';
+options.database = 'C:\\Users\\Public\\Bkp\\Bases de Clientes para Teste\\INDUSTRIAL\\Agro Gatti\\DB\\INDUSTRIAL.FDB';
 options.user = 'sysmts';
 options.password = 'mts';
 options.lowercase_keys = false; // set to true to lowercase keys
@@ -51,6 +51,27 @@ app.get('/buscaUsuariosApp', (request, response)=>{
                 response.send(result)
             }
             db.detach()
+        })
+    })
+})
+
+app.get('/buscaClientesERP', (request, response) => {
+    Firebird.attach(options, (err, db)=>{
+        if(err){
+            throw console.log("Erro ao conectar com o banco de dados", err)
+        }
+        db.query(`
+            SELECT 
+                *
+            FROM
+                CADCLIFOR
+        `, [], (err, result)=>{
+            if(err) {
+                console.log('Erro ao executar SELECT em /buscaClientesERP', err)
+                return
+            } else {
+                response.send(result)
+            }
         })
     })
 })

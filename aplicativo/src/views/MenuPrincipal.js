@@ -1,11 +1,18 @@
 import React from 'react'
 import {View, Text, TouchableOpacity} from 'react-native'
 import {Actions} from 'react-native-router-flux'
+import { Card } from 'react-native-elements'
 
 import Header from '../components/Header'
-import { Card } from 'react-native-elements';
+import {criaTabelaClientes} from '../DAO/criaTabelasBancoSQLite'
+import {buscaClientesERP} from '../functions/buscaClientesERP'
+import {buscaClientesApp} from '../DAO/crudClientesERP'
 
 export default class MenuPrincipal extends React.Component{
+
+    componentDidMount(){
+        criaTabelaClientes()
+    }
 
     render(){
         return(
@@ -36,7 +43,7 @@ export default class MenuPrincipal extends React.Component{
                 </View>
 
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress= {()=> buscaClientesERP()}>
                         <Card>
                             <View>
                                 <Text>Sincronizar Cadastros</Text>

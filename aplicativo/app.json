@@ -27,6 +27,11 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "devjuninhosolo.com.br"
+    },
+    "android": {
+      "package" : "devjunior.com.br",
+      "icon": "./assets/icon.png",
+      "versionCode": 1
     }
   }
 }
